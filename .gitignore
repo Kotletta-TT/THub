@@ -23,3 +23,13 @@ go.work.sum
 
 # env file
 .env
+
+# IDE Dirs
+.vscode/
+.idea/
+
+# Temporary
+frontend/*
+!frontend/term.html
+!frontend/term.js
+!frontend/index.html

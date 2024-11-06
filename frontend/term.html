@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Go SSH Web Client</title>
+    <!-- Подключаем стили xterm -->
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+    <!-- Скрипт xterm -->
+    <script src="node_modules/xterm/lib/xterm.js"></script>
+</head>
+<body>
+    <!-- Терминал -->
+    <div id="terminal"></div>
+    
+    <!-- Извлекаем параметр nodeId из URL -->
+    <script>
+        // Получаем параметр 'nodeId' из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nodeId = urlParams.get('nodeId');
+        
+        // Сохраняем значение в глобальной переменной
+        window.nodeId = nodeId;
+        console.log(window.nodeId)
+    </script>
+    
+    <!-- Основной скрипт -->
+    <script src="dist/bundle.js" type="text/javascript"></script>
+</body>
+</html>
