@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package = node;
+
+option go_package = "github.com/Kotletta-TT/THub/proto"
+
+enum CommandType {
+    Download = 0;
+    Upload = 1;
+    Restart = 2;
+    Sync = 3;
+    State = 4;
+}
+
+message Identify {
+    string ID = 1;
+}
+
+message Command {
+    CommandType Type = 1;
+    repeated string Args = 2;
+}
+
+message TerminalInput {
+    TerminalID string = 1;
+}
+
+message TerminalOutput {
+
+}
+
+service NodeService {
+    rpc GetCommands(Identify) returns (stream Command) {};
+    rpc Connect(stream TerminalOutput) returns (stream TerminalInput) {};
+}
+
